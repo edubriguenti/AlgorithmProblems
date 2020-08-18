@@ -1,4 +1,4 @@
-package com.edubriguenti.problems.hackerrank;
+package com.edubriguenti.problems.hackerrank.math;
 
 public class MaximumDraws {
 
