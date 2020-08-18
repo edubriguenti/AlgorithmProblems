@@ -1,18 +1,13 @@
-package com.edubriguenti.problems.hackerrank;
+package com.edubriguenti.problems.hackerrank.math;
 
-public class Handshake {
+public class Handshake2 {
 
     static int handshake(int n) {
-        if (n <= 1)
-            return 0;
-        if (n == 2) {
-            return 1;
-        }
-        return handshake(n - 1) + (n - 1);
+        return n * (n - 1) / 2;
     }
 
     public static void main(String[] args) {
-
+    //Testing
         assert handshake(1) == 0 : "Expected 0";
         assert handshake(2) == 1 : "Expected 1";
         assert handshake(3) == 3 : "Expected 3";

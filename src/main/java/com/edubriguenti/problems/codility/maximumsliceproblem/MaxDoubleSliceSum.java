@@ -1,0 +1,38 @@
+package com.edubriguenti.problems.codility.maximumsliceproblem;
+
+import java.util.Arrays;
+
+public class MaxDoubleSliceSum {
+
+    public static int solution(int[] A) {
+
+        int[] slice1LocalMax = new int[A.length];
+        int[] slice2LocalMax = new int[A.length];
+
+        //start from i=1 because slice can't start at index 0
+        for (int i = 1; i < A.length - 1; i++) {
+            slice1LocalMax[i] = Math.max(slice1LocalMax[i - 1] + A[i], 0);
+        } //start from i=A.length-2 because slice can't end at index A.length-1
+        for (int i = A.length - 2; i > 0; i--) {
+            slice2LocalMax[i] = Math.max(slice2LocalMax[i + 1] + A[i], 0);
+        }
+
+        int maxDoubleSliceSum = 0;
+
+        //compute sums of all slices to find absolute max
+        System.out.println("Slice 1 "+ Arrays.toString(slice1LocalMax));
+        System.out.println("Slice 2 "+ Arrays.toString(slice2LocalMax));
+        for (int i = 1; i < A.length - 1; i++) {
+            System.out.println("SUMM "+slice1LocalMax[i - 1] + " " + slice2LocalMax[i + 1]);
+            System.out.println("COMPARING "+maxDoubleSliceSum + " " + (slice1LocalMax[i - 1] + slice2LocalMax[i + 1]));
+            maxDoubleSliceSum = Math.max(maxDoubleSliceSum, slice1LocalMax[i - 1] + slice2LocalMax[i + 1]);
+        }
+
+        return maxDoubleSliceSum;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution(new int[]{1, 2, 3, 4}));
+
+    }
+}
