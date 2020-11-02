@@ -5,7 +5,7 @@ package com.edubriguenti.problems.codility.array;
 // you can write to stdout for debugging purposes, e.g.
 // System.out.println("this is a debug message");
 
-class CyclicRotation {
+class CyclicRotation3  {
     public static int[] solution(int[] A, int K) {
         int size = A.length;
         int[] returnArray = new int[size];
