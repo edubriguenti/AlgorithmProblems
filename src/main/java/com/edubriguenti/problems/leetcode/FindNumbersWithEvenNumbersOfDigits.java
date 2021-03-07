@@ -26,8 +26,18 @@ class FindNumbersWithEvenNumbersOfDigits {
         });
     }
 
+    public static int findNumbers3(int[] nums) {
+        return Arrays.stream(nums).reduce(0, (subTotal, element) ->  {
+            if ((element > 9 && element < 100) || (element > 999 && element < 10000)) {
+                return subTotal + 1;
+            } else {
+                return subTotal;
+            }
+        });
+    }
+
     public static void main(String[] args) {
-        System.out.println(findNumbers2(new int[]{1, 22, 111, 222}));
-        System.out.println(findNumbers2(new int[]{1, 22, 111, 2222}));
+        System.out.println(findNumbers(new int[]{1, 22, 111, 2222}));
+        System.out.println(findNumbers3(new int[]{1, 22, 111, 2222}));
     }
 }
